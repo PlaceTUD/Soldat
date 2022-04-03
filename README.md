@@ -1,6 +1,6 @@
 # PlaceTUD Bot
 
-The bot for PlaceTUD and their allies! This bot connects with the [command server](https://github.com/PlaceTUD/Commander) and gets it's orders from there. You can see the orderhistory [here](https://placetud.yanick.gay).
+The bot for PlaceTUD and their allies! This bot connects with the [Commander](https://github.com/PlaceTUD/Commander) and gets it's orders from there. You can see the orderhistory [here](https://placetud.yanick.gay).
 
 ## User script bot
 

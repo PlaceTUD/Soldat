@@ -87,7 +87,13 @@ let getPendingWork = (work, rgbaOrder, rgbaCanvas) => {
 
 (async function () {
   GM_addStyle(GM_getResourceText("TOASTIFY_CSS"));
-  update;
+  currentOrderCanvas.width = 2000;
+  currentOrderCanvas.height = 2000;
+  currentOrderCanvas.style.display = 'none';
+  currentOrderCanvas = document.body.appendChild(currentOrderCanvas);
+  currentPlaceCanvas.width = 2000;
+  currentPlaceCanvas.height = 2000;
+  currentPlaceCanvas.style.display = 'none';
   currentPlaceCanvas = document.body.appendChild(currentPlaceCanvas);
 
   Toastify({

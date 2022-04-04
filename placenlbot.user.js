@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PlaceTUD Bot
 // @namespace    https://github.com/PlaceTUD/Soldat
-// @version      18
+// @version      19
 // @description  Der PlaceTUD Bot für die koolsten Kids der TU Darmstadt!
 // @author       Ich und der andere
 // @match        https://www.reddit.com/r/place/*
@@ -125,7 +125,7 @@ function connectSocket() {
       duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast();
     socket.send(JSON.stringify({ type: "getmap" }));
-    socket.send(JSON.stringify({ type: "brand", brand: "userscriptV18" }));
+    socket.send(JSON.stringify({ type: "brand", brand: "userscriptV19" }));
   };
 
   socket.onmessage = async function (message) {

@@ -19,6 +19,7 @@
 // ==/UserScript==
 
 // Sorry for the messy code, hurry and clean does not always go together
+//GITHUB IS NOT UPDATING U BULLY
 
 var socket;
 var order = undefined;

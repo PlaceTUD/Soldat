@@ -405,23 +405,31 @@ function getCanvas(x, y) {
 function getCanvasFromUrl(url, canvas, x = 0, y = 0, clearCanvas = false) {
   return new Promise((resolve, reject) => {
     let loadImage = (ctx) => {
-      var img = new Image();
-      img.crossOrigin = "anonymous";
-      img.onload = () => {
-        if (clearCanvas) {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-        ctx.drawImage(img, x, y);
-        resolve(ctx);
-      };
-      img.onerror = () => {
-        Toastify({
-          text: "Error loading map. Trying again in 3 seconds",
-          duration: 3000,
-        }).showToast();
-        setTimeout(() => loadImage(ctx), 3000);
-      };
-      img.src = url;
+      GM.xmlHttpRequest({
+        method: "GET",
+        url: url,
+        responseType: "blob",
+        onload: function (response) {
+          var urlCreator = window.URL || window.webkitURL;
+          var imageUrl = urlCreator.createObjectURL(this.response);
+          var img = new Image();
+          img.onload = () => {
+            if (clearCanvas) {
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            ctx.drawImage(img, x, y);
+            resolve(ctx);
+          };
+          img.onerror = () => {
+            Toastify({
+              text: "Fout bij ophalen map. Opnieuw proberen in 3 sec...",
+              duration: 3000,
+            }).showToast();
+            setTimeout(() => loadImage(ctx), 3000);
+          };
+          img.src = imageUrl;
+        },
+      });
     };
     loadImage(canvas.getContext("2d"));
   });

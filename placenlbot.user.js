@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         PlaceTUD Bot
 // @namespace    https://github.com/PlaceTUD/Soldat
-// @version      20
+// @version      21
 // @description  Der PlaceTUD Bot für die koolsten Kids der TU Darmstadt!
 // @author       Ich und der andere
 // @match        https://www.reddit.com/r/place/*
 // @match        https://new.reddit.com/r/place/*
 // @connect      reddit.com
-// @connect      placenl.noahvdaa.me
+// @connect      placetud.yanick.gay
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
 // @require	     https://cdn.jsdelivr.net/npm/toastify-js
 // @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
@@ -131,7 +131,7 @@ function connectSocket() {
       duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast();
     socket.send(JSON.stringify({ type: "getmap" }));
-    socket.send(JSON.stringify({ type: "brand", brand: "userscriptV20" }));
+    socket.send(JSON.stringify({ type: "brand", brand: "userscriptV21" }));
   };
 
   socket.onmessage = async function (message) {

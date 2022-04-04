@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PlaceTUD Bot
 // @namespace    https://github.com/PlaceTUD/Soldat
-// @version      19
+// @version      20
 // @description  Der PlaceTUD Bot für die koolsten Kids der TU Darmstadt!
 // @author       Ich und der andere
 // @match        https://www.reddit.com/r/place/*
@@ -131,7 +131,7 @@ function connectSocket() {
       duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast();
     socket.send(JSON.stringify({ type: "getmap" }));
-    socket.send(JSON.stringify({ type: "brand", brand: "userscriptV19" }));
+    socket.send(JSON.stringify({ type: "brand", brand: "userscriptV20" }));
   };
 
   socket.onmessage = async function (message) {
@@ -179,7 +179,7 @@ function connectSocket() {
 
   socket.onclose = function (e) {
     Toastify({
-      text: `Conncetion lost with PlaceTUD Server: ${e.reason}`,
+      text: `Connection lost with PlaceTUD Server: ${e.reason}`,
       duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast();
     console.error("Socket error: ", e.reason);
@@ -190,7 +190,7 @@ function connectSocket() {
 
 async function attemptPlace() {
   if (order === undefined) {
-    setTimeout(attemptPlace, 2000); // probeer opnieuw in 2sec.
+    setTimeout(attemptPlace, 2000);
     return;
   }
   var ctx;
